@@ -1,39 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+import { cyberpunkTheme } from './theme/theme';
+import UploadPage from './components/UploadPage/UploadPage';
+import ResultsPage from './components/ResultsPage/ResultsPage';
+import type { AppState, AnalysisResult } from './types/instagram.types';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [appState, setAppState] = useState<AppState>({
+    currentPage: 'upload',
+    analysisResult: null,
+    loading: false,
+    error: null,
+  });
+
+  const handleAnalysisComplete = (result: AnalysisResult) => {
+    setAppState(prev => ({
+      ...prev,
+      currentPage: 'results',
+      analysisResult: result,
+      loading: false,
+      error: null,
+    }));
+  };
+
+  const handleBackToUpload = () => {
+    setAppState(prev => ({
+      ...prev,
+      currentPage: 'upload',
+      analysisResult: null,
+      loading: false,
+      error: null,
+    }));
+  };
+
+  const setLoading = (loading: boolean) => {
+    setAppState(prev => ({ ...prev, loading }));
+  };
+
+  const setError = (error: string | null) => {
+    setAppState(prev => ({ ...prev, error }));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={cyberpunkTheme}>
+      <CssBaseline />
+      {appState.currentPage === 'upload' ? (
+        <UploadPage
+          onAnalysisComplete={handleAnalysisComplete}
+          loading={appState.loading}
+          setLoading={setLoading}
+          error={appState.error}
+          setError={setError}
+        />
+      ) : (
+        <ResultsPage
+          analysisResult={appState.analysisResult!}
+          onBackToUpload={handleBackToUpload}
+        />
+      )}
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

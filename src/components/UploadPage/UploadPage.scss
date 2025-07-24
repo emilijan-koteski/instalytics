@@ -1,0 +1,177 @@
+.upload-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  .upload-container {
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .header-icon {
+      font-size: 4rem;
+      color: #00ffff;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 10px #00ffff);
+    }
+
+    .title {
+      margin-bottom: 8px;
+      background: linear-gradient(45deg, #00ffff 30%, #ff00ff 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: #b3b3b3;
+      font-weight: 300;
+    }
+  }
+
+  .upload-card {
+    backdrop-filter: blur(10px);
+    background: rgba(26, 26, 46, 0.8) !important;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+  }
+
+  .error-alert {
+    margin-bottom: 20px;
+    background-color: rgba(255, 51, 102, 0.1) !important;
+    border: 1px solid #ff3366;
+    color: #ffffff !important;
+
+    .MuiAlert-icon {
+      color: #ff3366 !important;
+    }
+  }
+
+  .dropzone {
+    border: 2px dashed #00ffff;
+    border-radius: 12px;
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(0, 255, 255, 0.02);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover:not(.disabled) {
+      border-color: #ff00ff;
+      background: rgba(255, 0, 255, 0.05);
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    }
+
+    &.drag-active {
+      border-color: #ff00ff;
+      background: rgba(255, 0, 255, 0.1);
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+
+  .upload-content {
+    .upload-icon {
+      font-size: 4rem;
+      color: #00ffff;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px #00ffff);
+    }
+
+    .upload-title {
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .upload-description {
+      color: #b3b3b3;
+      margin-bottom: 24px;
+    }
+
+    .upload-button {
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+
+  .loading-state {
+    .loading-text {
+      margin: 20px 0 8px 0;
+      color: #00ffff;
+    }
+
+    .loading-subtext {
+      color: #b3b3b3;
+    }
+
+    .MuiCircularProgress-root {
+      color: #00ffff;
+      filter: drop-shadow(0 0 10px #00ffff);
+    }
+  }
+
+  .instructions {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .instructions-title {
+      margin-bottom: 16px;
+      color: #ff00ff;
+      font-size: 1.1rem;
+    }
+
+    .instructions-list {
+      color: #b3b3b3;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+
+        &::marker {
+          color: #00ffff;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .upload-page {
+    padding: 16px;
+
+    .dropzone {
+      padding: 40px 20px;
+      min-height: 250px;
+    }
+
+    .header {
+      .header-icon {
+        font-size: 3rem;
+      }
+    }
+
+    .upload-content {
+      .upload-icon {
+        font-size: 3rem;
+      }
+    }
+  }
+}

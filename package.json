@@ -15,8 +15,12 @@
     "@fontsource/roboto": "^5.2.6",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
+    "@types/jszip": "^3.4.0",
+    "jszip": "^3.10.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-dropzone": "^14.3.8",
+    "sass": "^1.89.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
