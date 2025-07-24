@@ -23,7 +23,8 @@ export const parseInstagramZip = async (file: File): Promise<ParsedInstagramData
     const followersContent = await followersFile.async('text');
     const followingContent = await followingFile.async('text');
     
-    const followers: FollowersData = JSON.parse(followersContent);
+    const followersRaw = JSON.parse(followersContent);
+    const followers: FollowersData = Array.isArray(followersRaw) ? followersRaw : [followersRaw];
     const following: FollowingData = JSON.parse(followingContent);
     
     return {
