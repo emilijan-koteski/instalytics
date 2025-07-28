@@ -12,7 +12,7 @@ A React-based Instagram analytics tool that helps you discover who doesn't follo
 
 ## How to Use
 
-1. **Get your Instagram data**: Go to Instagram → Settings → Privacy and Security → Data Download
+1. **Get your Instagram data**: Go to Instagram Settings → Accounts Center → Your information and permissions → Download your information
 2. **Request download** in JSON format (takes a few hours)
 3. **Upload the ZIP file** to Instalytics
 4. **View results** showing non-followers with profile links
