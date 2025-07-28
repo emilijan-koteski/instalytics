@@ -131,7 +131,7 @@ const UploadPage: React.FC<UploadPageProps> = ({
                 How to get your Instagram data:
               </Typography>
               <ol className="instructions-list">
-                <li>Go to Instagram Settings → Privacy and Security → Data Download</li>
+                <li>Go to Instagram Settings → Accounts Center → Your information and permissions → Download your information</li>
                 <li>Request a download of your data in JSON format</li>
                 <li>Wait for Instagram to prepare your data (usually takes a few hours)</li>
                 <li>Download the ZIP file and upload it here</li>
